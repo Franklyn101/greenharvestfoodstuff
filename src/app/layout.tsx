@@ -1,0 +1,59 @@
+import type { Metadata, Viewport } from "next";
+import "./globals.css";
+import { siteConfig } from "@/config/site";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: `${siteConfig.name} | Cassava processing in Benue, Nigeria`,
+    template: `%s | ${siteConfig.shortName}`,
+  },
+  description: siteConfig.description,
+  applicationName: siteConfig.shortName,
+  openGraph: {
+    type: "website",
+    locale: "en_NG",
+    siteName: siteConfig.name,
+    url: siteConfig.url,
+    images: [{ url: "/images/facility/processing-team.webp", width: 668, height: 465, alt: "Green Harvest processing team at work" }],
+  },
+  twitter: { card: "summary_large_image" },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0e3a1f",
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: siteConfig.name,
+  legalName: siteConfig.legalName,
+  url: siteConfig.url,
+  logo: `${siteConfig.url}/images/brand/logo.png`,
+  email: siteConfig.contact.email,
+  telephone: siteConfig.contact.phoneIntl,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "No. 60 Adoka–Otukpo Road",
+    addressRegion: "Benue State",
+    addressCountry: "NG",
+  },
+};
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang="en-NG">
+      <body className="flex min-h-screen flex-col">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
+        <Header />
+        <main id="main" className="flex-1">
+          {children}
+        </main>
+        <Footer />
+      </body>
+    </html>
+  );
+}

@@ -1,0 +1,120 @@
+@import "tailwindcss";
+@import "@fontsource-variable/archivo/wdth.css";
+
+/*
+ * Green Harvest tokens
+ * forest  — deep cassava-leaf green, primary dark surface
+ * leaf    — the logo green, actions and highlights
+ * garri   — yellow garri gold, used sparingly for emphasis
+ * peel    — cassava skin brown, secondary accent
+ * flour   — cool off-white page surface
+ * ink     — body text
+ */
+@theme {
+  --color-forest: #0e3a1f;
+  --color-forest-2: #164d2a;
+  --color-leaf: #3fa535;
+  --color-leaf-dark: #2c7f25;
+  --color-garri: #e9b42c;
+  --color-peel: #7a4e2d;
+  --color-flour: #f6f7f2;
+  --color-ink: #16221a;
+  --color-muted: #55635a;
+  --color-line: #dfe4dc;
+
+  --font-sans: "Archivo Variable", system-ui, sans-serif;
+  --font-display: "Archivo Variable", system-ui, sans-serif;
+
+  --radius-card: 0.5rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background: var(--color-flour);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-variation-settings: "wdth" 100;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-garri);
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Extended display face echoes the wide wordmark in the logo. */
+  .display {
+    font-family: var(--font-display);
+    font-variation-settings: "wdth" 125;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 1.02;
+  }
+  .heading {
+    font-variation-settings: "wdth" 112;
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    line-height: 1.15;
+  }
+  .prose-gh p + p {
+    margin-top: 1em;
+  }
+  .prose-gh {
+    line-height: 1.65;
+    max-width: 68ch;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    padding: 0.8rem 1.4rem;
+    font-weight: 600;
+    font-variation-settings: "wdth" 108;
+    transition: background-color 0.15s, color 0.15s;
+  }
+  .btn-primary {
+    background: var(--color-garri);
+    color: var(--color-forest);
+  }
+  .btn-primary:hover {
+    background: #f3c64b;
+  }
+  .btn-ghost {
+    border: 1.5px solid currentColor;
+  }
+  .btn-ghost:hover {
+    background: rgb(255 255 255 / 0.1);
+  }
+}
+
+/* Single orchestrated moment: the hero headline rises in on load. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-rise {
+  animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
