@@ -3,6 +3,7 @@ import "./globals.css";
 import { siteConfig } from "@/config/site";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -45,14 +46,22 @@ const organizationJsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-NG">
+    <html lang="en-NG" suppressHydrationWarning>
       <body className="flex min-h-screen flex-col">
+        {/* Flag JS before first paint so reveal targets start hidden; skipped for reduced motion. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('js-reveal')",
+          }}
+        />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
         <Header />
         <main id="main" className="flex-1">
           {children}
         </main>
         <Footer />
+        <ScrollReveal />
       </body>
     </html>
   );

@@ -21,12 +21,12 @@ export function PageHero({
   return (
     <section className="relative overflow-hidden bg-forest text-white">
       {image && (
-        <Image src={image} alt={imageAlt} fill sizes="100vw" className="object-cover opacity-30" priority />
+        <Image src={image} alt={imageAlt} fill sizes="100vw" className="animate-settle object-cover opacity-30" priority />
       )}
       <div className="absolute inset-0 bg-gradient-to-r from-forest via-forest/85 to-forest/40" aria-hidden />
       <Container className="relative py-16 sm:py-24">
         {crumbs.length > 0 && (
-          <nav aria-label="Breadcrumb" className="mb-6 text-sm text-white/70">
+          <nav aria-label="Breadcrumb" className="animate-rise mb-6 text-sm text-white/70">
             <ol className="flex flex-wrap gap-2">
               <li>
                 <Link href="/" className="hover:text-white">Home</Link>
@@ -40,8 +40,8 @@ export function PageHero({
             </ol>
           </nav>
         )}
-        <h1 className="display max-w-4xl text-4xl sm:text-5xl lg:text-6xl">{title}</h1>
-        {intro && <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80">{intro}</p>}
+        <h1 className="display animate-rise max-w-4xl text-4xl [--delay:80ms] sm:text-5xl lg:text-6xl">{title}</h1>
+        {intro && <p className="animate-rise mt-6 max-w-2xl text-lg leading-relaxed text-white/80 [--delay:200ms]">{intro}</p>}
       </Container>
     </section>
   );

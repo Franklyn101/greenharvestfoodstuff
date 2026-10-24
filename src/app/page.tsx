@@ -19,23 +19,23 @@ export default function HomePage() {
             <h1 className="display animate-rise text-[2.6rem] sm:text-6xl lg:text-[4.4rem]">
               Cassava from Benue, processed for Nigeria&rsquo;s kitchens and factories.
             </h1>
-            <p className="mt-7 max-w-xl text-lg leading-relaxed text-white/80">
+            <p className="animate-rise mt-7 max-w-xl text-lg leading-relaxed text-white/80 [--delay:150ms]">
               Green Harvest buys fresh roots from farming communities in Nigeria&rsquo;s cassava belt and turns them into
               garri, fufu flour, cassava flour, starch, ethanol and animal feed for households, institutions and industry.
             </p>
-            <div className="mt-9 flex flex-wrap gap-3">
+            <div className="animate-rise mt-9 flex flex-wrap gap-3 [--delay:280ms]">
               <Link href="/contact#quote" className="btn btn-primary">Request a quote</Link>
               <Link href="/products" className="btn btn-ghost">See our products</Link>
             </div>
           </div>
           <div className="relative grid grid-cols-5 grid-rows-5 gap-3 [height:min(68vw,520px)]">
-            <div className="relative col-span-3 row-span-5 overflow-hidden rounded-card">
+            <div className="animate-settle relative col-span-3 row-span-5 overflow-hidden rounded-card [--delay:120ms]">
               <Image src="/images/facility/washing-line.webp" alt="Visitors watching fresh cassava roots move along the washing line" fill sizes="(min-width:1024px) 30vw, 60vw" className="object-cover" priority />
             </div>
-            <div className="relative col-span-2 row-span-3 overflow-hidden rounded-card">
+            <div className="animate-settle relative col-span-2 row-span-3 overflow-hidden rounded-card [--delay:240ms]">
               <Image src="/images/facility/processing-team.webp" alt="Staff in green uniforms processing cassava" fill sizes="(min-width:1024px) 20vw, 40vw" className="object-cover" priority />
             </div>
-            <div className="relative col-span-2 row-span-2 overflow-hidden rounded-card">
+            <div className="animate-settle relative col-span-2 row-span-2 overflow-hidden rounded-card [--delay:360ms]">
               <Image src="/images/products/garri.webp" alt="Yellow garri" fill sizes="(min-width:1024px) 20vw, 40vw" className="object-cover" />
             </div>
           </div>
