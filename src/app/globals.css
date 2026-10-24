@@ -1,5 +1,6 @@
 @import "tailwindcss";
-@import "@fontsource-variable/archivo/wdth.css";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/roboto";
 
 /*
  * Green Harvest tokens
@@ -22,8 +23,8 @@
   --color-muted: #55635a;
   --color-line: #dfe4dc;
 
-  --font-sans: "Archivo Variable", system-ui, sans-serif;
-  --font-display: "Archivo Variable", system-ui, sans-serif;
+  --font-sans: "Roboto Variable", system-ui, sans-serif;
+  --font-display: "Inter Variable", system-ui, sans-serif;
 
   --radius-card: 0.5rem;
 }
@@ -36,7 +37,6 @@
     background: var(--color-flour);
     color: var(--color-ink);
     font-family: var(--font-sans);
-    font-variation-settings: "wdth" 100;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -58,19 +58,18 @@
 }
 
 @layer components {
-  /* Extended display face echoes the wide wordmark in the logo. */
+  /* Headings and buttons in Inter; body text in Roboto. */
   .display {
     font-family: var(--font-display);
-    font-variation-settings: "wdth" 125;
     font-weight: 800;
-    letter-spacing: -0.01em;
-    line-height: 1.02;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
   }
   .heading {
-    font-variation-settings: "wdth" 112;
+    font-family: var(--font-display);
     font-weight: 700;
-    letter-spacing: -0.005em;
-    line-height: 1.15;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
   }
   .prose-gh p + p {
     margin-top: 1em;
@@ -85,8 +84,8 @@
     gap: 0.5rem;
     border-radius: 999px;
     padding: 0.8rem 1.4rem;
+    font-family: var(--font-display);
     font-weight: 600;
-    font-variation-settings: "wdth" 108;
     transition: background-color 0.15s, color 0.15s;
   }
   .btn-primary {
