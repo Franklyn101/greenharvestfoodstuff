@@ -37,7 +37,7 @@ npm run build && npm start
 ## Open items for the client
 
 - **Head office address**: certificates show House 2, Jikoyi Phase 1, Abuja; the profile shows the Benue site. Set `contact.headOffice` once confirmed.
-- **Certificate scans**: hidden by default (`showCertificateScans: false`) because they include staff counts, revenue lines and tax IDs. The compliance page lists status instead.
+- **Certificate scans**: hidden by default (`showCertificateScans: false`) because they include staff counts, revenue lines and tax IDs. The compliance page lists status instead. The scan files are git-ignored (this repo is public), so to enable them copy the approved files into `public/images/certificates/` on the build machine only.
 - **Photos**: images were pulled from the PDF profiles and are low resolution (≈450–750px). Request original photos of the site, staff, products and both directors. Some machinery photos in the profiles appear to be supplier stock images and were left out.
 - **Products in development**: starch syrup/glucose and biogas are marked as in development. Confirm whether ethanol and animal feed are in production today.
 - **Social media links**: add in `src/config/site.ts`.
